@@ -10,7 +10,7 @@ decaler <- function(texte, decalage) {
   table_corr <- c("A" = 1, "B" = 2, "C" = 3, "D" = 4, "E" = 5, "F" = 6, "G" = 7, "H" = 8, "I" = 9, "J" = 10, 
                   "K" = 11, "L" = 12, "M" = 13, "N" = 14, "O" = 15, "P" = 16, "Q" = 17, "R" = 18, "S" = 19, 
                   "T" = 20, "U" = 21, "V" = 22, "W" = 23, "X" = 24, "Y" = 25, "Z" = 26, " " = 27, "?" = 28, 
-                  "!" = 29, "." = 30) 
+                  "!" = 29, "." = 30, "," = 31) 
   
   # Séparer les caractères du texte
   caracteres_sep <- unlist(strsplit(texte, ""))
@@ -34,13 +34,9 @@ decaler <- function(texte, decalage) {
       chiffres_modifies[i] <- 27  # 27 considéré comme espace
     } else if (caracteres_sep[i] == "-") {
       chiffres_modifies[i] <- 27  # 27 considéré comme espace
-    } else if (caracteres_sep[i] == "é") {
+    } else if (caracteres_sep[i] == ",") {
       chiffres_modifies[i] <- 31  # 31
-    } else if (caracteres_sep[i] == "è") {
-      chiffres_modifies[i] <- 32  # 32
-    } else if (caracteres_sep[i] == "ô") {
-      chiffres_modifies[i] <- 33  # 33
-    }else {
+    } else {
       chiffres_modifies[i] <- table_corr[[caracteres_sep[i]]]
     }
   }
