@@ -15,7 +15,7 @@ decaler <- function(texte, decalage) {
   # Séparer les caractères du texte
   caracteres_sep <- unlist(strsplit(texte, ""))
   
-  caracteres_sep <- chartr("áàâäãåéèêëíìîïóòôöõúùûüýÿ", "aaaaaaeeeeiiiiooooouuuuyy", caracteres_sep)
+  caracteres_sep <- chartr("áàâäãåéÉèêëíìîïóòôöõúùûüýÿ", "aaaaaaeeeeeiiiiooooouuuuyy", caracteres_sep)
   
   caracteres_sep <- toupper(caracteres_sep)
   
