@@ -2,9 +2,6 @@
 
 library(shiny)
 
-texte <- "é"
-decalage <- 2
-
 decaler <- function(texte, decalage) {
   # Créer table correspondance
   table_corr <- c("A" = 1, "B" = 2, "C" = 3, "D" = 4, "E" = 5, "F" = 6, "G" = 7, "H" = 8, "I" = 9, "J" = 10, 
@@ -15,11 +12,11 @@ decaler <- function(texte, decalage) {
   # Séparer les caractères du texte
   caracteres_sep <- unlist(strsplit(texte, ""))
   
-  caracteres_sep <- chartr("áàâäãåéÉèêëíìîïóòôöõúùûüýÿ", "aaaaaaeeeeeiiiiooooouuuuyy", caracteres_sep)
+  caracteres_sep <- chartr("áàâäãåÀéÉèêëíìîïóòôöõúùûüýÿ", "aaaaaaaeeeeeiiiiooooouuuuyy", caracteres_sep)
   
   caracteres_sep <- toupper(caracteres_sep)
   
-  # Convertir en chiffres avec gestion des espaces
+  # Convertir en chiffres avec gestion des espaces, ponctuation accent
   chiffres_modifies <- numeric(length(caracteres_sep))
   for (i in seq_along(caracteres_sep)) {
     if (caracteres_sep[i] == " ") {
